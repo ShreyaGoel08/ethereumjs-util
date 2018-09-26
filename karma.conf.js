@@ -33,6 +33,13 @@ module.exports = function (config) {
       'RANDOM_TESTS_REPEAT',
       'TRAVIS'
     ],
+customLaunchers: {
+      Chrome: {
+        base: ‘ChromeHeadless’,
+        flags: [ ‘—no-sandbox’,],
+         },
+      },
+
     detectBrowsers: {
       enabled: true,
       usePhantomJS: false,
@@ -41,7 +48,7 @@ module.exports = function (config) {
           return ['Firefox']
         }
 
-        var browsers = ['Chrome', 'Firefox']
+        var browsers = ['HeadlessChrome', 'Firefox']
         return browsers.filter(function (browser) {
           return availableBrowser.indexOf(browser) !== -1
         })
